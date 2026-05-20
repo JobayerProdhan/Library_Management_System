@@ -50,6 +50,13 @@ class Library:
         self.students.append(student)
         print('Student added!')
     
+    def find_student(self,id): 
+        for s in self.students: 
+            if s.student_id == id:
+                return s 
+            return None
+    
+    
                  
 
 
