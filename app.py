@@ -56,6 +56,49 @@ class Library:
                 return s 
             return None
     
+    def issue_books(self,isbn,id):
+        book = self.find_book(isbn)
+        student = self.find_student(id)
+        
+        if not book: 
+            print('Book not found!!')
+        
+        if not student :
+            print('Student not found!!!')
+        
+        if book.is_available:
+            book.is_available = False 
+            student.issued_books.append(book)
+            print('Books issued')
+        else:
+            print('Book already issued!')
+                
+    def return_book(self,isbn,id):
+        student = self.find_student(id)
+        
+        if not student:
+            print('Student not found')
+        
+        for book in student.issued_books:
+            if book.isbn ==   True
+            student.issued_books.remove(book)
+            print('Book Returned!')
+            return 
+        
+        print('Book not found in issued list.')
+    
+    def show_student_books(self,id):
+        student = self.find_student(id)
+        if  not student:
+            print('Student not found')
+            return 
+        
+        print(f'\n Books issued to {student.name}:')
+        if not student.issued_books:
+            print('No books issued')
+        for b in student.issued_books:
+            print(b)  
+            
     
                  
 
